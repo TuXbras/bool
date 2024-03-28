@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Por Gustavo Valério
+# www.gustavovalerio.com
+# @gvs90
+#Modificado por Antonio CH...
+
+#echo "Seus repositórios serão configurados..."
+#echo "Fazendo backup do Sources.list"
+#mv /etc/apt/sources.list{,.bkp}
+#echo "Obtendo novo sources.list..."
+#cd /etc/apt/
+#wget http://www.gustavovalerio.xpg.com.br/linux/sources.list
+#echo "Sources.list novo instalado, atualizando ..."
+apt update;apt upgrade -y
+
+echo "Instalando o X e drivers de áudio e vídeo"
+apt --no-install-recommends install xserver-xorg-core xserver-xorg-video-intel xserver-xorg-fbdev mesa-utils -y
+
+echo "Instalando XFCE e alguns programas básicos..."
+apt install --no-install-recommends xfce4-{session,settings,panel,pulseaudio-plugin,whiskermenu-plugin,terminal,taskmanager,screenshooter} dbus-x11 desktop-file-utils gtk{2,3}-engines-xfce hicolor-icon-theme thunar xfdesktop4 xfwm4 fonts-cantarell mousepad audacious tumbler synaptic viewnior file-roller thunar-archive-plugin pavucontrol policykit-1{,-gnome} menu{,libre,-l10n} -y
+
+echo "Instalando um gerenciador de login"
+apt install --no-install-recommends lightdm lightdm-gtk-greter-setings lightdm-gtk-greter  -y
+
+#echo "instalando um kernel de baixa latência e o Prelink"
+#apt install linux-lowlatency prelink -y
+
+echo "Instalando um firewall"
+apt install gufw python-gobject python-ufw -y
+echo "Habilitando o firewall"
+ufw enable
+
+echo "Instalando Brave Browser"
+sudo apt install curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+sudo apt update
+
+sudo apt install brave-browser
+
+#echo "Prelinkando o sistema"
+#sed -i 's/unknown/yes/g' /etc/default/prelink
+#prelink -amvR
+
+#echo "Diminuindo a prioridade Swap e melhorando o Uso do cache"
+#echo "vm.swappiness=10">>/etc/sysctl.conf
+#echo "vm.vfs_cache_pressure=100">>/etc/sysctl.conf
+#sysctl -p
+echo "Configurações concluídas!"
+echo "Reiniciando..."
+sleep 3
+reboot
