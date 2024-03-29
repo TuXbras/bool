@@ -18,7 +18,7 @@ echo "Instalando o X e drivers de áudio e vídeo"
 apt --no-install-recommends install xserver-xorg-core xserver-xorg-video-intel xserver-xorg-fbdev mesa-utils -y
 
 echo "Instalando XFCE e alguns programas básicos..."
-apt install --no-install-recommends xfce4-{session,settings,panel,pulseaudio-plugin,whiskermenu-plugin,terminal,taskmanager,screenshooter} dbus-x11 desktop-file-utils gtk{2,3}-engines-xfce hicolor-icon-theme thunar xfdesktop4 xfwm4 fonts-cantarell mousepad audacious tumbler synaptic viewnior file-roller thunar-archive-plugin pavucontrol policykit-1{,-gnome} menu{,libre,-l10n} -y
+apt install whiskermenu-plugin screenshooter hicolor-icon-theme fonts-cantarell mousepad audacious tumbler synaptic viewnior file-roller thunar-archive-plugin  policykit-1 -y
 
 echo "Instalando um gerenciador de login"
 apt install --no-install-recommends lightdm lightdm-gtk-greter-setings lightdm-gtk-greter  -y
