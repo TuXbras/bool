@@ -9,28 +9,25 @@
 echo "Sources.list atualizando ..."
 apt update;apt upgrade -y
 
-echo "Instalando o X e drivers de áudio e vídeo"
+echo "Instalando o X e drivers de áudio e vídeo..."
 apt --no-install-recommends install -y xserver-xorg-core xserver-xorg-video-intel xserver-xorg-video-fbdev mesa-utils x11-xserver-utils gtk2-engines gtk2-engines-pixbuf 
 
 echo "Instalando XFCE e alguns programas básicos..."
-apt install xfce4 xfce4-terminal xfce4-whiskermenu-plugin hicolor-icon-theme fonts-cantarell mousepad audacious tumbler synaptic synapse viewnior file-roller thunar-archive-plugin policykit-1 -y
+apt install xfce4 xfce4-terminal xfce4-whiskermenu-plugin hicolor-icon-theme fonts-cantarell mousepad audacious synaptic synapse viewnior file-roller thunar-archive-plugin policykit-1 -y
 
-echo "Instalando um gerenciador de login"
+echo "Instalando um gerenciador de login..."
 apt install lightdm lightdm-gtk-greeter-setings lightdm-gtk-greeter slick-greeter-lightdm -y
 
 apt install numix-icon-theme-circle paper-icon-theme papirus-icon-theme suru-icon-theme breeze-icon-theme thunderbird -y
 
-echo "setando idioma PT-Br"
+echo "setando idioma PT-Br..."
 localectl set-locale LANG=pt_BR.UTF-8
 
-echo "Instalando Brave Browser"
+echo "Instalando Brave Browser..."
 sudo apt install curl
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
-sudo apt update
-
+sudo apt update 
 sudo apt install brave-browser
 
 echo "Configurações concluídas!"
