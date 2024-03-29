@@ -3,28 +3,22 @@
 # Por Gustavo Valério
 # www.gustavovalerio.com
 # @gvs90
-#Modificado por Antonio CH...
+# Modificado por Antonio CH...
 
-#echo "Seus repositórios serão configurados..."
-#echo "Fazendo backup do Sources.list"
-#mv /etc/apt/sources.list{,.bkp}
-#echo "Obtendo novo sources.list..."
-#cd /etc/apt/
-#wget http://www.gustavovalerio.xpg.com.br/linux/sources.list
-#echo "Sources.list novo instalado, atualizando ..."
+
+echo "Sources.list atualizando ..."
 apt update;apt upgrade -y
 
 echo "Instalando o X e drivers de áudio e vídeo"
 apt --no-install-recommends install -y xserver-xorg-core xserver-xorg-video-intel xserver-xorg-video-fbdev mesa-utils x11-xserver-utils gtk2-engines gtk2-engines-pixbuf 
 
 echo "Instalando XFCE e alguns programas básicos..."
-apt install whiskermenu-plugin screenshooter hicolor-icon-theme fonts-cantarell mousepad audacious tumbler synaptic viewnior file-roller thunar-archive-plugin  policykit-1 -y
+apt install xfce4 xfce4-terminal whiskermenu-plugin screenshooter hicolor-icon-theme fonts-cantarell mousepad audacious tumbler synaptic viewnior file-roller thunar-archive-plugin  policykit-1 -y
 
 echo "Instalando um gerenciador de login"
 apt install lightdm lightdm-gtk-greeter-setings lightdm-gtk-greeter  slick-greeter-lightdm -y
 
-#echo "instalando um kernel de baixa latência e o Prelink"
-#apt install linux-lowlatency prelink -y
+apt install numix-icon-theme-circle  paper-icon-theme papirus-icon-theme suru-icon-theme breeze-icon-theme git thunderbird -y
 
 echo "setando idioma PT-Br"
 localectl set-locale LANG=pt_BR.UTF-8
@@ -39,14 +33,6 @@ sudo apt update
 
 sudo apt install brave-browser
 
-#echo "Prelinkando o sistema"
-#sed -i 's/unknown/yes/g' /etc/default/prelink
-#prelink -amvR
-
-#echo "Diminuindo a prioridade Swap e melhorando o Uso do cache"
-#echo "vm.swappiness=10">>/etc/sysctl.conf
-#echo "vm.vfs_cache_pressure=100">>/etc/sysctl.conf
-#sysctl -p
 echo "Configurações concluídas!"
 echo "Reiniciando..."
 sleep 3
