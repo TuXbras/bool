@@ -15,21 +15,19 @@
 apt update;apt upgrade -y
 
 echo "Instalando o X e drivers de áudio e vídeo"
-apt --no-install-recommends install xserver-xorg-core xserver-xorg-video-intel xserver-xorg-fbdev mesa-utils -y
+apt --no-install-recommends install -y xserver-xorg-core xserver-xorg-video-intel xserver-xorg-video-fbdev mesa-utils x11-xserver-utils gtk2-engines gtk2-engines-pixbuf 
 
 echo "Instalando XFCE e alguns programas básicos..."
 apt install whiskermenu-plugin screenshooter hicolor-icon-theme fonts-cantarell mousepad audacious tumbler synaptic viewnior file-roller thunar-archive-plugin  policykit-1 -y
 
 echo "Instalando um gerenciador de login"
-apt install --no-install-recommends lightdm lightdm-gtk-greter-setings lightdm-gtk-greter  -y
+apt install lightdm lightdm-gtk-greeter-setings lightdm-gtk-greeter  slick-greeter-lightdm -y
 
 #echo "instalando um kernel de baixa latência e o Prelink"
 #apt install linux-lowlatency prelink -y
 
-echo "Instalando um firewall"
-apt install gufw python-gobject python-ufw -y
-echo "Habilitando o firewall"
-ufw enable
+echo "setando idioma PT-Br"
+localectl set-locale LANG=pt_BR.UTF-8
 
 echo "Instalando Brave Browser"
 sudo apt install curl
