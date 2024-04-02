@@ -16,9 +16,9 @@ echo "Instalando XFCE e alguns programas básicos..."
 apt install xfce4 xfce4-terminal xfce4-whiskermenu-plugin hicolor-icon-theme fonts-cantarell mousepad audacious synaptic synapse viewnior file-roller thunar-archive-plugin policykit-1 -y
 
 echo "Instalando um gerenciador de login..."
-apt install lightdm lightdm-gtk-greeter-settings lightdm-gtk-greeter slick-greeter-lightdm network-manager-gnome -y
+apt install lightdm lightdm-gtk-greeter-settings lightdm-gtk-greeter slick-greeter network-manager-gnome -y
 
-apt install numix-icon-theme-circle paper-icon-theme papirus-icon-theme suru-icon-theme breeze-icon-theme thunderbird -y
+apt install numix-icon-theme-circle paper-icon-theme papirus-icon-theme suru-icon-theme breeze-icon-theme thunderbird thunderbird-l10n-pt-br -y
 
 echo "setando idioma PT-Br..."
 localectl set-locale LANG=pt_BR.UTF-8
